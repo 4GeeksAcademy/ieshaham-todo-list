@@ -7,9 +7,9 @@ export default function TodoContainer() {
 
   const onChangeHandler = (event) => setUserInput(event.target.value);
 
-  const removeTodo = (indexToRemove) =>{
-    setTodoList(todoList.filter((_,index)=> index !==indexToRemove));
-    
+  const removeTodo = (indexToRemove) => {
+    setTodoList(todoList.filter((_, index) => index !== indexToRemove));
+
   }
 
   const addTodoHandler = (event) => {
@@ -26,8 +26,10 @@ export default function TodoContainer() {
           value={userInput}
           onChange={onChangeHandler}
           onKeyUp={addTodoHandler}
+          required
         />
         {todoList.map((todo, index) => (
+          
           <Todo key={index} todo={todo} index={index} removeTodo={removeTodo} />
         ))}
       </form>
